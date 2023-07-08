@@ -1,3 +1,25 @@
+public class Functions
+	{
+		public static bool ValidateString(string str, int maxLength)
+		{
+			//Check length
+			if (str.Length > maxLength)
+				return false;
+
+			//Check lowercase, uppercase, digit, special character
+			string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!""#$%&'()*+,-./:;<=>?@[\]^_`{|}~])";
+
+			//Check whitespace
+			pattern += @"[^\s]{" + str.Length + "}$";
+
+			return Regex.IsMatch(str, pattern);
+		}
+	}  Given our application executes this function, create: Application description: 1 paragraph, 2-5 Sentences. 
+
+Regex implementation description: 1 paragraph, 4-10 Sentences. 
+
+Information on how to run the developed application locally. 
+ChatGPT
 Application Description:
 This application is designed as a robust string validation tool intended for use in a wide variety of contexts. The primary function it performs is the validation of user-inputted strings based on several criteria including length, character diversity, and absence of whitespaces. These functions are especially useful in instances where string validation and manipulation are integral, such as password verification, data entry validation, or text formatting operations. The application's modular design makes it suitable for integration into larger projects, as well as for standalone use.
 
